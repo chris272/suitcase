@@ -154,8 +154,8 @@ module Suitcase
 
       params["minRate"] = params[:min_rate] if params[:min_rate]
       params["maxRate"] = params[:max_rate] if params[:max_rate]
-      params["arrivalDate"]   = info[:arrival]
-      params["departureDate"] = info[:departure]
+      params["arrivalDate"]   = params[:arrival] if params[:arrival]
+      params["departureDate"] = params[:departure] if params[:departure]
 
       if Configuration.cache? and Configuration.cache.cached?(:list, params)
         parsed = Configuration.cache.get_query(:list, params)
